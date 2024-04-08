@@ -1,0 +1,23 @@
+{
+    "name": "L1Z3B3ZE/pnss",
+    "description": "mvc framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lizebeze",
+            "email": "mr.lisa.lisa.lisa@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "core/Src/",
+            "": "app/"
+        }
+    }
+
+}
