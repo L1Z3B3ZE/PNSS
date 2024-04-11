@@ -1,13 +1,21 @@
-<h2>Авторизация</h2>
-<h3><?= $message ?? ''; ?></h3>
-
-<h3><?= app()->auth->user()->name ?? ''; ?></h3>
+<h3><?= app()->auth->check() ? 'Вы уже вошли на сайт как ' . app()->auth->user()->name : ''; ?></h3>
 <?php
 if (!app()->auth::check()):
     ?>
-    <form method="post">
-        <label>Логин <input type="text" name="login"></label>
-        <label>Пароль <input type="password" name="password"></label>
-        <button>Войти</button>
-    </form>
+    <div class="login_content">
+        <form class="login_form" method="post">
+            <h2 class="form_title">Авторизация</h2>
+            <h4 class="error_message"><?= $message ?? ''; ?></h4>
+            <div class="input-group">
+                <label class="form_label">Логин</label>
+                <input class="login_input" type="text" name="login">
+            </div>
+            <div class="input-group">
+                <label class="form_label" for="password">Пароль</label>
+                <input class="login_input" id="password" type="password" name="password">
+            </div>
+            <button class="authorization_button">ВХОД</button>
+        </form>
+    </div>
+
 <?php endif;

@@ -73,3 +73,124 @@ main {
     border-radius: 15px;
 }
 
+.login_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 78px); /* высота хэдера */
+    flex-direction: column;
+}
+
+.login_form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 530px;
+    height: 400px;
+    background-color: #31D1BE;
+    border-radius: 50px;
+}
+
+.form_label{
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.login_input{
+    width: 450px;
+    height: 70px;
+    background-color: #B1F2EE;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 20px;
+}
+
+.form_title{
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.authorization_button{
+    width: 150px;
+    height: 50px;
+    margin-top: 35px;
+    background-color: #219688;
+    color: white;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.error_message{
+    margin-top: 10px;
+    color: darkred;
+    border-bottom: 1px solid darkred;
+}
+
+.admin_content{
+    padding: 80px 0 60px 0;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 78px); /* высота хэдера */
+    flex-direction: column;
+}
+
+.admin_title{
+    display: flex;
+    flex-direction: row;
+    gap: 90px;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.registry_employee{
+    width: 550px;
+    height: 60px;
+    padding: 20px 40px;
+    background-color: #B1F2EE;
+    border: 2px solid #219688;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.add_employee_button{
+    width: 200px;
+    height: 40px;
+    background-color: #219688;
+    border-radius: 10px;
+    color: white;
+}
+
+
+.employee_button{
+    background-color: #219688;
+    width: 280px;
+    height: 80px;
+    border-radius: 25px;
+}
+
+.employee_button_link{
+    color: white;
+    font-size: 24px;
+}
+
+.registry_employee_content{
+    padding-top: 70px;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 78px); /* высота хэдера */
+    flex-direction: column;
+}
+
+.registry_employee_buttons{
+    margin-top: 100px;
+    display: flex;
+    gap: 30px;
+}

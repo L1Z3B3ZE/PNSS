@@ -9,11 +9,15 @@ use Src\Auth\Auth;
 
 class Site
 {
-
+    public function homepage(): string
+    {
+        $users = User::where('role_id', 2)->get();
+        return (new View())->render('site.main_page', ['users' => $users]);
+    }
 
     public function index(): string
     {
-        return new View('site.home', ['message' => 'hello']);
+        return new View('site.home');
     }
 
 
@@ -33,7 +37,7 @@ class Site
         }
         //Если удалось аутентифицировать пользователя, то редирект
         if (Auth::attempt($request->all())) {
-            app()->route->redirect('/hello');
+            app()->route->redirect('/mainPage');
         }
         //Если аутентификация не удалась, то сообщение об ошибке
         return new View('site.login', ['message' => 'Неправильные логин или пароль']);
