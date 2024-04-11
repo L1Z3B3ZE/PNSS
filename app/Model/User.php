@@ -14,7 +14,9 @@ class User extends Model implements IdentityInterface
     protected $fillable = [
         'name',
         'login',
-        'password'
+        'password',
+        'surname',
+        'patronymic'
     ];
 
     protected static function booted()

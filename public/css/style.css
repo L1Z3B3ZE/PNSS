@@ -168,6 +168,60 @@ main {
     color: white;
 }
 
+.add_employee_content{
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 78px); /* высота хэдера */
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.add_employee_form{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 450px;
+    background-color: #31D1BE;
+    align-items: center;
+    border-radius: 55px;
+}
+
+.add_input{
+    width: 250px;
+    height: 20px;
+    background-color: #B1F2EE;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: 10px;
+}
+
+.button_add_employee{
+    background-color: #219688;
+    border-radius: 15px;
+    margin-top: 25px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.add_form_label{
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+.add_form_title{
+    font-size: 16px;
+}
+
+.message{
+    margin-top: 5px;
+    font-size: 16px;
+    color: darkred;
+    border-bottom: 1px solid darkred;
+}
 
 .employee_button{
     background-color: #219688;
