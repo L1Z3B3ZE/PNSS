@@ -11,13 +11,18 @@ class Employee
 {
     public function doctors(): string
     {
-        $doctors = Doctor::all();
-        return new View('site.doctors', ['doctors' => $doctors]);
+        return new View('site.doctors');
 
     }
 
-    public function addDoctor(Request $request): string
+    public function addDoctor(): string
     {
         return new View('site.add_doctor');
+    }
+
+    public function patients(): string
+    {
+        return new View('site.patients');
+
     }
 }

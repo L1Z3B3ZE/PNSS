@@ -1,5 +1,5 @@
-<div class="doctors_content">
-    <div class="doctors_title_menu">
+<div class="employee_content">
+    <div class="employee_title_menu">
         <h3>Врачи</h3>
         <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addDoctor') ?>"
                                                class="button_add_link">Добавить врача</a></button>
