@@ -478,3 +478,27 @@ main {
     display: flex;
     justify-content: center;
 }
+
+.cancel_content{
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 78px); /* высота хэдера */
+    flex-direction: column;
+    padding-top: 150px;
+}
+
+.cancel_button{
+    width: 200px;
+    height: 60px;
+    background-color: #219688;
+    border-radius: 25px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cancel_buttons{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}

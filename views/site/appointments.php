@@ -28,7 +28,8 @@
                 <p class="doctor_FIO">Петров Петр Петрович</p>
                 <p class="appointments_date">дата приема</p>
             </div>
-            <button class="edit_patient_info"><a href="#">Отменить
+            <button class="edit_patient_info"><a href="<?= app()->route->getUrl('/cancelAppointment') ?>"
+                                                 class="button_add_link"">Отменить
                     запись</a></button>
         </div>
 

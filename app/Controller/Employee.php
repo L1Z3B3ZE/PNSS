@@ -49,4 +49,10 @@ class Employee
         return new View('site.add_appointment');
 
     }
+
+    public function cancelAppointment(): string
+    {
+        return new View('site.cancelAppointment');
+
+    }
 }
