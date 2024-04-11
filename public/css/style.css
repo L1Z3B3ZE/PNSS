@@ -306,3 +306,47 @@ main {
     flex-direction: column;
     align-items: center;
 }
+
+.add_doctor_form{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+    background-color: #31D1BE;
+    align-items: center;
+    border-radius: 55px;
+}
+
+.position_filter{
+    width: 250px;
+    height: 40px;
+    background-color: #21F5DC;
+    margin-top: 20px;
+}
+
+.position_value{
+    background-color: #63d1c9;
+}
+
+.specialties_filter{
+    width: 250px;
+    height: 40px;
+    background-color: #21F5DC;
+    margin-top: 20px;
+}
+
+.specialty_value{
+    background-color: #63d1c9;
+}
+
+.button_add_doctor{
+    background-color: #219688;
+    border-radius: 15px;
+    margin-top: 25px;
+    width: 100px;
+    height: 50px;
+    color: white;
+    font-size: 10px;
+    cursor: pointer;
+}

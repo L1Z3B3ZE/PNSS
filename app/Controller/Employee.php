@@ -16,4 +16,8 @@ class Employee
 
     }
 
+    public function addDoctor(Request $request): string
+    {
+        return new View('site.add_doctor');
+    }
 }
