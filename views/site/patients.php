@@ -1,7 +1,7 @@
 <div class="employee_content">
     <div class="employee_title_menu">
         <h3>Пациенты</h3>
-        <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addPatient') ?>">Добавить пациента</a></button>
+        <button class="add_employee_button"><a class="link" href="<?= app()->route->getUrl('/addPatient') ?>">Добавить пациента</a></button>
     </div>
     <div class="filter">
         <select class="patients_filter">
@@ -24,7 +24,7 @@
                     <p class="doctor_FIO">Петров Петр Петрович</p>
                     <p class="appointments_date">дата приема</p>
                 </div>
-                <button class="edit_patient_info"><a href="<?= app()->route->getUrl('/editPatient') ?>">Редактировать данные о пациенте</a></button>
+                <button class="edit_patient_info"><a class="edit_patient_info_link" href="<?= app()->route->getUrl('/editPatient') ?>">Редактировать данные о пациенте</a></button>
             </div>
         </div>
 
