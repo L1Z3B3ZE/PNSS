@@ -24,7 +24,7 @@
                     <p class="doctor_FIO">Петров Петр Петрович</p>
                     <p class="appointments_date">дата приема</p>
                 </div>
-                <button class="edit_patient_info">Редактировать данные о пациенте</button>
+                <button class="edit_patient_info"><a href="<?= app()->route->getUrl('/editPatient') ?>">Редактировать данные о пациенте</a></button>
             </div>
         </div>
 

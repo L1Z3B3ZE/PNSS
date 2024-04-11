@@ -31,4 +31,10 @@ class Employee
         return new View('site.add_patient');
 
     }
+
+    public function editPatient(): string
+    {
+        return new View('site.edit_patient');
+
+    }
 }
