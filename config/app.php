@@ -9,5 +9,6 @@ return [
         'auth' => \Middlewares\AuthMiddleware::class,
         'roleAdmin' => \Middlewares\RoleAdminMiddleware::class,
         'roleEmployee' => \Middlewares\RoleEmployeeMiddleware::class,
+        'notAuth' => \Middlewares\NotAuthMiddleware::class,
     ]
 ];

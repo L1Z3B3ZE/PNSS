@@ -1,8 +1,12 @@
+<?php
+
+if (!app()->auth::checkRole()):
+?>
 <div class="employee_content">
     <div class="employee_title_menu">
         <h3>Врачи</h3>
         <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addDoctor') ?>"
-                                               class="button_add_link">Добавить врача</a></button>
+                                               class="link">Добавить врача</a></button>
     </div>
     <div class="filter">
         <select class="patients_filter">
@@ -15,7 +19,6 @@
     </div>
 
     <ol>
-        <div class="FIO">
             <div class="doctors_list">
                 <div class="doctor_FIO">
                     <p class="doctor_FIO">Иванов Иван Иванович</p>
@@ -25,7 +28,14 @@
                     <p class="specialty">Фармация</p>
                 </div>
             </div>
-        </div>
 
     </ol>
 </div>
+<?php
+
+else:
+    ?>
+    <p>not admin start page</p>
+<?php
+endif;
+?>

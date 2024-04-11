@@ -2,7 +2,7 @@
     <div class="employee_title_menu">
         <h3>Записи на прием</h3>
         <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addAppointment') ?>"
-                                               class="button_add_link">Добавить запись на прием</a></button>
+                                               class="link">Добавить запись на прием</a></button>
     </div>
     <div class="appointment_filter">
         <select class="doctor_filter">
@@ -29,7 +29,7 @@
                 <p class="appointments_date">дата приема</p>
             </div>
             <button class="edit_patient_info"><a href="<?= app()->route->getUrl('/cancelAppointment') ?>"
-                                                 class="button_add_link"">Отменить
+                                                 class="link"">Отменить
                     запись</a></button>
         </div>
 

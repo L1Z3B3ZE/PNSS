@@ -448,9 +448,9 @@ main {
 }
 
 .filter{
-    width: 455px;
-    height: 50px;
-    background-color: #21F5DC;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
 }
 
 .appointment_form_label{
@@ -501,4 +501,23 @@ main {
     display: flex;
     flex-direction: row;
     gap: 50px;
+}
+
+.header_link{
+    color: black;
+    font-size: 14px;
+    border-bottom: 1px solid black;
+}
+
+.edit_patient_info_link{
+    color: white;
+}
+
+.link{
+    color: white;
+}
+
+.logo_link{
+    font-size: 18px;
+    color: black;
 }

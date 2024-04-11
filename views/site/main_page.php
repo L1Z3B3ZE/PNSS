@@ -6,7 +6,7 @@ if (app()->auth::checkRole()):
         <div class="admin_title">
             <h3>Сотрудники регистратуры</h3>
             <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addEmployee') ?>"
-                                                   class="button_add_link">Добавить</a></button>
+                                                   class="link">Добавить</a></button>
         </div>
         <ol>
             <?php

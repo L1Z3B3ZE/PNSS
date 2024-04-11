@@ -6,7 +6,7 @@ if (!app()->auth::checkRole()):
         <form method="post" class="add_appointment_form">
             <h2 class="add_form_title">Запись на прием</h2>
             <div class="patient_info">
-                <select class="filter">
+                <select class="patients_filter">
                     <option class="patient_value" label="Пациент" value="1" selected></option>
                     <option class="patient_value">Пациент 2</option>
                     <option class="patient_value">Пациент 3</option>

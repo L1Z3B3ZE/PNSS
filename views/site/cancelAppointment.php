@@ -7,7 +7,7 @@ if (!app()->auth::checkRole()):
     <div class="cancel_buttons">
         <button class="cancel_button">Да</button>
         <button class="cancel_button"><a href="<?= app()->route->getUrl('/appointments') ?>"
-                                         class="button_add_link">Назад</a></button>
+                                         class="link">Назад</a></button>
     </div>
 
 </div>

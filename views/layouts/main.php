@@ -11,13 +11,23 @@
 <header class="header">
     <div class="logoMain">
         <img src="/pop-it-mvc/public/media/logo.png" width="40px">
-        <h1>POLYCLINIC</h1>
+        <a class="logo_link" href="<?= app()->route->getUrl('/mainPage') ?>">POLYCLINIC</a>
     </div>
     <?php
     if (!app()->auth::check()):
         ?>
     <?php
     else:
+        ?>
+        <?php
+
+        if (!app()->auth::checkRole()):
+            ?>
+            <a class="header_link" href="<?= app()->route->getUrl('/patients') ?>">Пациенты</a>
+            <a class="header_link" href="<?= app()->route->getUrl('/doctors') ?>">Врачи</a>
+            <a class="header_link" href="<?= app()->route->getUrl('/appointments') ?>">Записи на прием</a>
+        <?php
+        endif;
         ?>
         <button class="logout_button"><a class="button_link" href="<?= app()->route->getUrl('/logout') ?>">Выход</a></button>
     <?php
@@ -29,10 +39,9 @@
     <?= $content ?? '' ?>
 </main>
 
-
-
-
 </body>
 </html>
+
+
 
 
