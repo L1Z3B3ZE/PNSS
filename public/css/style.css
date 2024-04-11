@@ -248,3 +248,61 @@ main {
     display: flex;
     gap: 30px;
 }
+
+.doctors_content{
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 78px); /* высота хэдера */
+    flex-direction: column;
+    padding-top: 50px;
+
+}
+
+.doctors_title_menu{
+    display: flex;
+    flex-direction: row;
+    gap: 300px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.patients_filter{
+    width: 455px;
+    height: 50px;
+    background-color: #21F5DC;
+    margin-bottom: 35px;
+}
+
+.patient_value{
+    background-color: #63d1c9;
+}
+
+.doctors_list{
+    width: 550px;
+    height: 60px;
+    background-color: #B1F2EE;
+    border: 2px solid #219688;
+    padding: 0 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search_button{
+    width: 90px;
+    height: 50px;
+    background-color: #3B6C66;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+}
+
+.positions_and_specialties{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

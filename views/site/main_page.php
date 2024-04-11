@@ -27,7 +27,7 @@ else:
     </div>
     <h3>сотрудник регистратуры</h3>
     <div class="registry_employee_buttons">
-        <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/login') ?>">Врачи</a>
+        <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/doctors') ?>">Врачи</a>
         </button>
         <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/login') ?>">Записи
                 на прием</a></button>
