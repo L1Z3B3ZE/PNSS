@@ -31,7 +31,7 @@ else:
         </button>
         <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/login') ?>">Записи
                 на прием</a></button>
-        <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/login') ?>">Пациенты</a>
+        <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/patients') ?>">Пациенты</a>
         </button>
     </div>
 </div>

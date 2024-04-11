@@ -384,4 +384,24 @@ main {
     border-radius: 10px;
     font-size: 12px;
     color: white;
+    cursor: pointer;
+}
+
+.add_patient_content{
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 78px); /* высота хэдера */
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.add_patient_form{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 400px;
+    background-color: #31D1BE;
+    align-items: center;
+    border-radius: 55px;
 }

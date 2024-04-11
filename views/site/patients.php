@@ -1,7 +1,7 @@
 <div class="employee_content">
     <div class="employee_title_menu">
         <h3>Пациенты</h3>
-        <button class="add_employee_button"><a href="#">Добавить пациента</a></button>
+        <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addPatient') ?>">Добавить пациента</a></button>
     </div>
     <div class="filter">
         <select class="patients_filter">
