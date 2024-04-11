@@ -37,4 +37,10 @@ class Employee
         return new View('site.edit_patient');
 
     }
+
+    public function appointments(): string
+    {
+        return new View('site.appointments');
+
+    }
 }

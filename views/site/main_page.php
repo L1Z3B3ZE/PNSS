@@ -29,7 +29,7 @@ else:
     <div class="registry_employee_buttons">
         <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/doctors') ?>">Врачи</a>
         </button>
-        <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/login') ?>">Записи
+        <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/appointments') ?>">Записи
                 на прием</a></button>
         <button class="employee_button"><a class="employee_button_link" href="<?= app()->route->getUrl('/patients') ?>">Пациенты</a>
         </button>
