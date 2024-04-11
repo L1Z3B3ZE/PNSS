@@ -1,8 +1,8 @@
 <div class="employee_content">
     <div class="employee_title_menu">
         <h3>Записи на прием</h3>
-        <button class="add_employee_button"><a href="#">Добавить запись на
-                прием</a></button>
+        <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addAppointment') ?>"
+                                               class="button_add_link">Добавить запись на прием</a></button>
     </div>
     <div class="appointment_filter">
         <select class="doctor_filter">

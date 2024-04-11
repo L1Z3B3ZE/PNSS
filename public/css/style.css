@@ -426,3 +426,55 @@ main {
     padding: 10px;
     margin-bottom: 20px;
 }
+
+.add_appointment_content{
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 78px); /* высота хэдера */
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.add_appointment_form{
+    display: flex;
+    flex-direction: column;
+}
+
+.patient_info{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.filter{
+    width: 455px;
+    height: 50px;
+    background-color: #21F5DC;
+}
+
+.appointment_form_label{
+    font-size: 12px
+}
+
+.date_time_appointment{
+    display: flex;
+    flex-direction: row;
+    gap: 230px;
+}
+
+.button_add_appointment{
+    background-color: #219688;
+    border-radius: 15px;
+    margin-top: 25px;
+    width: 150px;
+    height: 50px;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.button_container {
+    display: flex;
+    justify-content: center;
+}
