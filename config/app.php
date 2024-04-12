@@ -10,5 +10,10 @@ return [
         'roleAdmin' => \Middlewares\RoleAdminMiddleware::class,
         'roleEmployee' => \Middlewares\RoleEmployeeMiddleware::class,
         'notAuth' => \Middlewares\NotAuthMiddleware::class,
-    ]
+    ],
+    'validators' => [
+        'required' => \Validators\RequireValidator::class,
+        'unique' => \Validators\UniqueValidator::class
+    ],
+
 ];
