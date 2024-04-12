@@ -4,7 +4,7 @@ namespace Controller;
 
 use Src\Request;
 use Src\View;
-use Model\Doctor;
+use Model\Patient;
 
 
 class Employee
@@ -26,11 +26,14 @@ class Employee
 
     }
 
-    public function addPatient(): string
+    public function addPatient(Request $request): string
     {
+        if ($request->method === 'POST' && Patient::create($request->all())) {
+            app()->route->redirect('/patients');
+        }
         return new View('site.add_patient');
-
     }
+
 
     public function editPatient(): string
     {

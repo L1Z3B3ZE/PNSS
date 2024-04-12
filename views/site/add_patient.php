@@ -19,7 +19,7 @@ if (!app()->auth::checkRole()):
             </div>
             <div class="input-group">
                 <label class="add_form_label">Дата рождения</label>
-                <input class="add_input" type="date" name="login">
+                <input class="add_input" type="date" name="birth_date">
             </div>
 
             <button class="button_add_employee">Добавить</button>
