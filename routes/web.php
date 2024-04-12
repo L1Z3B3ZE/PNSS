@@ -16,4 +16,3 @@ Route::add(['GET', 'POST'], '/editPatient', [Controller\Employee::class, 'editPa
 Route::add('GET', '/appointments', [Controller\Employee::class, 'appointments'])->middleware('auth','roleEmployee');
 Route::add(['GET', 'POST'], '/addAppointment', [Controller\Employee::class, 'addAppointment'])->middleware('auth','roleEmployee');
 Route::add('GET', '/cancelAppointment', [Controller\Employee::class, 'cancelAppointment'])->middleware('auth','roleEmployee');+
-Route::add(['GET', 'POST'], '/signup', [Controller\Site::class, 'signup'])->middleware('notAuth');
