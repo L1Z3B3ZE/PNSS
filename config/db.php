@@ -2,7 +2,7 @@
 return [
     'driver' => 'mysql',
     'host' => 'localhost',
-    'database' => 'gedauhax-m2',
+    'database' => 'gedauhax_m2',
     'username' => 'gedauhax',
     'password' => 'HBsKfN',
     'charset' => 'utf8',
