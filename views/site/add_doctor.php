@@ -22,23 +22,7 @@ if (!app()->auth::checkRole()):
                 <label class="add_form_label">Дата рождения</label>
                 <input class="add_input" type="date" name="birth_date" placeholder="Дата рождения">
             </div>
-            <div class="input-group">
-                <select class="position_filter">
-                    <option class="position_value" label="Должность" value="1" selected></option>
-                    <option class="position_value">Должность 2</option>
-                    <option class="position_value">Должность 3</option>
-                    <option class="position_value">Должность 4</option>
-                </select>
-            </div>
-            <div class="input-group">
-                <select class="specialties_filter">
-                    <option class="specialty_value" label="Специальность" value="1" selected></option>
-                    <option class="specialty_value">Специальность 2</option>
-                    <option class="specialty_value">Специальность 3</option>
-                    <option class="specialty_value">Специальность 4</option>
-                </select>
-            </div>
-            <button class="button_add_doctor">Добавить</button>
+            <button class="button_add_doctor">Далее</button>
         </form>
     </div>
 <?php

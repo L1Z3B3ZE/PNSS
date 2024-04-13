@@ -313,7 +313,7 @@ main {
     display: flex;
     flex-direction: column;
     width: 400px;
-    height: 500px;
+    height: 400px;
     background-color: #31D1BE;
     align-items: center;
     border-radius: 55px;
@@ -323,7 +323,6 @@ main {
     width: 250px;
     height: 40px;
     background-color: #21F5DC;
-    margin-top: 20px;
 }
 
 .position_value{
@@ -520,4 +519,20 @@ main {
 .logo_link{
     font-size: 18px;
     color: black;
+}
+
+.add_position_specialty_form{
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 300px;
+    background-color: #31D1BE;
+    align-items: center;
+    border-radius: 55px;
+}
+
+.doctor_label{
+    font-size: 12px;
+    margin-top: 20px;
 }
