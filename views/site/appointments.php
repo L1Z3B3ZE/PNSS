@@ -32,6 +32,23 @@
                                                  class="link"">Отменить
                     запись</a></button>
         </div>
+        <div class="appointments_list">
+            <?php foreach ($appointments as $appointment): ?>
+                <div class="patient_data">
+                    <p class="patient_FIO"><?= $patients[$appointment->patient_id]['surname'] . ' ' . $patients[$appointment->patient_id]['name'] . ' ' . $patients[$appointment->patient_id]['patronymic'] ?></p>
+                    <p class="patient_birthDate"><?= $patients[$appointment->patient_id]['birth_date'] ?></p>
+                </div>
+                <div class="appointment_data">
+                    <p class="doctor_FIO"><?= $doctors[$appointment->doctor_id]['surname'] . ' ' . $doctors[$appointment->doctor_id]['name'] . ' ' . $doctors[$appointment->doctor_id]['patronymic'] ?></p>
+                    <p class="appointments_date"><?= $appointment->appointment_date ?></p>
+                    <p class="patient_birthDate"><?= $statuses[$appointment->status_id]['status'] ?></p>
+                </div>
+                <button class="edit_patient_info">
+                    <a href="<?= app()->route->getUrl('/cancelAppointment') ?>" class="link">Отменить запись</a>
+                </button>
+            <?php endforeach; ?>
+        </div>
+
 
     </ol>
 </div>

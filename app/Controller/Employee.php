@@ -68,9 +68,23 @@ class Employee
 
     public function appointments(): string
     {
-        return new View('site.appointments');
+        $appointments = Appointment::all();
 
+        $patients = Patient::all()->mapWithKeys(function ($patient) {
+            return [$patient->id => ['name' => $patient->name, 'surname' => $patient->surname, 'patronymic' => $patient->patronymic, 'birth_date' => $patient->birth_date]];
+        });
+
+        $doctors = Doctor::all()->mapWithKeys(function ($doctor) {
+            return [$doctor->id => ['name' => $doctor->name, 'surname' => $doctor->surname, 'patronymic' => $doctor->patronymic]];
+        });
+
+        $statuses = Status::all()->mapWithKeys(function ($status) {
+            return [$status->id => ['status' => $status->status]];
+        });
+
+        return new View('site.appointments', ['patients' => $patients, 'doctors' => $doctors, 'appointments' => $appointments, 'statuses' => $statuses]);
     }
+
 
     public function addAppointment(Request $request): string
     {
@@ -84,9 +98,23 @@ class Employee
 
     }
 
-    public function cancelAppointment(): string
+    public function cancelAppointment($appointmentId): string
     {
-        return new View('site.cancelAppointment');
+        // Получаем запись на прием по ID
+        $appointment = Appointment::find($appointmentId);
 
+        // Находим статус "отменена"
+        $cancelledStatus = Status::where('status', 'отменена')->first();
+
+        if ($appointment && $cancelledStatus) {
+            // Меняем статус записи на "отменена"
+            $appointment->status_id = $cancelledStatus->id;
+            $appointment->save();
+
+            return new View('site.cancelAppointment');
+        }
+
+        // Если запись на прием или статус "отменена" не найдены, возвращаем ошибку
+        return "Ошибка: запись на прием или статус 'отменена' не найдены.";
     }
 }
