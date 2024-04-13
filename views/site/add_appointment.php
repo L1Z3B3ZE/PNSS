@@ -34,7 +34,7 @@ if (!app()->auth::checkRole()):
             <div class="button_container">
                 <button class="button_add_appointment">Записать пациента</button>
             </div>
-            <input type="hidden" name="employee_id" value="<?php app()->auth::user()->id; ?>">
+            <input type="hidden" name="employee_id" value="<?php echo app()->auth::user()->id; ?>">
         </form>
     </div>
 <?php

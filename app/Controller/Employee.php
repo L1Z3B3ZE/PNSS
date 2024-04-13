@@ -107,14 +107,20 @@ class Employee
         $cancelledStatus = Status::where('status', 'отменена')->first();
 
         if ($appointment && $cancelledStatus) {
-            // Меняем статус записи на "отменена"
-            $appointment->status_id = $cancelledStatus->id;
-            $appointment->save();
-
-            return new View('site.cancelAppointment');
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Меняем статус записи на "отменена"
+                $appointment->status_id = $cancelledStatus->id;
+                $appointment->save();
+                app()->route->redirect('/appointments');
+                return new View('site.cancelAppointment', ['appointment' => $appointment]);
+            } else {
+                // Show confirmation page
+                return new View('site.cancelAppointment', ['appointment' => $appointment]);
+            }
         }
 
         // Если запись на прием или статус "отменена" не найдены, возвращаем ошибку
         return "Ошибка: запись на прием или статус 'отменена' не найдены.";
     }
+
 }

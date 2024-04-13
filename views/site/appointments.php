@@ -19,21 +19,8 @@
     </div>
 
     <ol>
-        <div class="appointments_list">
-            <div class="patient_data">
-                <p class="patient_FIO">Иванов Иван Иванович</p>
-                <p class="patient_birthDate">дата рождения</p>
-            </div>
-            <div class="appointment_data">
-                <p class="doctor_FIO">Петров Петр Петрович</p>
-                <p class="appointments_date">дата приема</p>
-            </div>
-            <button class="edit_patient_info"><a href="<?= app()->route->getUrl('/cancelAppointment') ?>"
-                                                 class="link"">Отменить
-                    запись</a></button>
-        </div>
-        <div class="appointments_list">
-            <?php foreach ($appointments as $appointment): ?>
+        <?php foreach ($appointments as $appointment): ?>
+            <div class="appointments_list">
                 <div class="patient_data">
                     <p class="patient_FIO"><?= $patients[$appointment->patient_id]['surname'] . ' ' . $patients[$appointment->patient_id]['name'] . ' ' . $patients[$appointment->patient_id]['patronymic'] ?></p>
                     <p class="patient_birthDate"><?= $patients[$appointment->patient_id]['birth_date'] ?></p>
@@ -44,11 +31,10 @@
                     <p class="patient_birthDate"><?= $statuses[$appointment->status_id]['status'] ?></p>
                 </div>
                 <button class="edit_patient_info">
-                    <a href="<?= app()->route->getUrl('/cancelAppointment') ?>" class="link">Отменить запись</a>
+                    <a href="<?= app()->route->getUrl('/cancelAppointment/' . $appointment->id) ?>" class="link">Отменить запись</a>
                 </button>
-            <?php endforeach; ?>
-        </div>
-
-
+            </div>
+        <?php endforeach; ?>
     </ol>
+
 </div>
