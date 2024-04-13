@@ -2,9 +2,13 @@
 
 namespace Controller;
 
+use Model\User;
 use Src\Request;
 use Src\View;
 use Model\Patient;
+use Model\Appointment;
+use Model\Doctor;
+use Model\Status;
 
 
 class Employee
@@ -47,9 +51,15 @@ class Employee
 
     }
 
-    public function addAppointment(): string
+    public function addAppointment(Request $request): string
     {
-        return new View('site.add_appointment');
+        if ($request->method === 'POST' && Appointment::create($request->all())) {
+            app()->route->redirect('/appointments');
+        }
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+        $users = User::all();
+        return new View('site.add_appointment', ['doctors' => $doctors, 'patients' => $patients, 'users' => $users]);
 
     }
 
