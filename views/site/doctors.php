@@ -38,6 +38,10 @@ if (!app()->auth::checkRole()):
             echo "</div>";
         }
         ?>
+        <?php if (isset($message)): ?>
+            <p><?= $message ?></p>
+        <?php endif; ?>
+
     </div>
 <?php
 

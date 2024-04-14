@@ -20,26 +20,26 @@ class Employee
 {
     public function doctors(): string
     {
+        $patients = Patient::all();
         $searchPatientId = isset($_GET['patient_id']) ? $_GET['patient_id'] : null;
+        $doctors = [];
 
         if ($searchPatientId) {
             $patient = Patient::find($searchPatientId);
             if ($patient) {
                 $appointments = Appointment::where('patient_id', $searchPatientId)->get();
                 if ($appointments->isEmpty()) {
-                    return new View('site.doctors', ['message' => 'У этого пациента нет записей на прием']);
+                    return new View('site.doctors', ['message' => 'У этого пациента нет записей на прием', 'searchPatientId' => $searchPatientId, 'doctors' => $doctors, 'patients' => $patients]);
                 }
                 $doctorIds = $appointments->pluck('doctor_id')->toArray();
                 $doctors = Doctor::whereIn('id', $doctorIds)->get();
             } else {
-                return new View('site.doctors', ['message' => 'Пациент с таким ID не найден']);
+                return new View('site.doctors', ['message' => 'Пациент с таким ID не найден', 'searchPatientId' => $searchPatientId, 'doctors' => $doctors, 'patients' => $patients]);
             }
         }
         else {
             $doctors = Doctor::all();
         }
-
-        $patients = Patient::all();
 
         return new View('site.doctors', ['doctors' => $doctors, 'patients' => $patients, 'searchPatientId' => $searchPatientId]);
     }
