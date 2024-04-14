@@ -16,4 +16,15 @@ class Doctor extends Model
         'patronymic',
         'birth_date',
     ];
+
+    public function specialties()
+    {
+        return $this->belongsToMany(Specialty::class, Doctors_specialty::class);
+    }
+
+    public function positions()
+    {
+        return $this->belongsToMany(Position::class, Current_position::class);
+    }
 }
+
