@@ -15,6 +15,7 @@ use Model\Doctor;
 use Model\Status;
 
 
+
 class Employee
 {
     public function doctors(): string
@@ -35,9 +36,10 @@ class Employee
         }
         return new View('site.add_doctor');
     }
+
     public function addSpecialtyPosition($request): string
     {
-        if ($request->method === 'POST' && Current_position::create($request->all())&& Doctors_specialty::create($request->all())) {
+        if ($request->method === 'POST' && Current_position::create($request->all()) && Doctors_specialty::create($request->all())) {
             app()->route->redirect('/doctors');
         }
         $positions = Position::all();
@@ -47,9 +49,21 @@ class Employee
 
     public function patients(): string
     {
-        return new View('site.patients');
+        $searchPatientId = isset($_GET['patient_id']) ? $_GET['patient_id'] : null;
 
+        if ($searchPatientId) {
+            $appointments = Appointment::where('patient_id', $searchPatientId)->get();
+        }
+        else {
+            $appointments = Appointment::all();
+        }
+        $statuses = Status::all();
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+        return new View('site.patients', ['patients' => $patients, 'appointments' => $appointments, 'doctors' => $doctors, 'statuses' => $statuses, 'searchPatientId' => $searchPatientId]);
     }
+
+
 
     public function addPatient(Request $request): string
     {

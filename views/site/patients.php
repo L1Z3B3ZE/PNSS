@@ -1,32 +1,53 @@
 <div class="employee_content">
     <div class="employee_title_menu">
         <h3>Пациенты</h3>
-        <button class="add_employee_button"><a class="link" href="<?= app()->route->getUrl('/addPatient') ?>">Добавить пациента</a></button>
+        <button class="add_employee_button"><a class="link" href="<?= app()->route->getUrl('/addPatient') ?>">Добавить
+                пациента</a></button>
     </div>
-    <div class="filter">
-        <select class="patients_filter">
-            <option class="patient_value" label="Пациент" value="1" selected></option>
-            <option class="patient_value">Пациент 2</option>
-            <option class="patient_value">Пациент 3</option>
-            <option class="patient_value">Пациент 4</option>
-        </select>
-        <button class="search_button">Поиск</button>
-    </div>
-
-    <ol>
-        <div class="FIO">
-            <div class="appointments_list">
-                <div class="patient_data">
-                    <p class="patient_FIO">Иванов Иван Иванович</p>
-                    <p class="patient_birthDate">дата рождения</p>
-                </div>
-                <div class="appointment_data">
-                    <p class="doctor_FIO">Петров Петр Петрович</p>
-                    <p class="appointments_date">дата приема</p>
-                </div>
-                <button class="edit_patient_info"><a class="edit_patient_info_link" href="<?= app()->route->getUrl('/editPatient') ?>">Редактировать данные о пациенте</a></button>
-            </div>
+    <form action="<?= app()->route->getUrl('/patients') ?>" method="get">
+        <div class="filter">
+            <select name="patient_id" class="patients_filter">
+                <option value="">Все записи</option>
+                <?php
+                foreach ($patients as $patient) {
+                    $selected = ($_GET['patient_id'] == $patient->id) ? 'selected' : '';
+                    echo "<option class='patient_value' value='$patient->id' $selected>$patient->name $patient->surname $patient->patronymic ($patient->birth_date)</option>";
+                }
+                ?>
+            </select>
+            <button type="submit" class="search_button">Поиск</button>
         </div>
+    </form>
 
-    </ol>
+    <div>
+        <div class="appointment_labels">
+            <p>ФИО пациента/дата рождения</p>
+            <p>ФИО врача/дата приема/статус приема</p>
+        </div>
+        <?php
+        foreach ($appointments as $appointment) {
+            $statusName = $appointment->status->status;
+            $doctorName = $appointment->doctor->name;
+            $doctorSurname = $appointment->doctor->surname;
+            $doctorPatronymic = $appointment->doctor->patronymic;
+            $patientName = $appointment->patient->name;
+            $patientSurname = $appointment->patient->surname;
+            $patientPatronymic = $appointment->patient->patronymic;
+            $patientBirthDate = $appointment->patient->birth_date;
+            echo "<div class='patients_appointments_list'>";
+                echo "<div class='patient_data'>";
+                    echo "<p class='patient_FIO'>$patientName $patientSurname $patientPatronymic</p>";
+                    echo "<p class='patient_birthDate'>$patientBirthDate</p>";
+                echo "</div>";
+                echo "<div class='appointment_data'>";
+                    echo "<p class='doctor_FIO'>$doctorSurname $doctorName $doctorPatronymic</p>";
+                    echo "<p class='appointments_date'>$appointment->appointment_date</p>";
+                    echo "<p class='appointment_status'>$statusName</p>";
+                echo "</div>";
+            echo "</div>";
+        }
+        ?>
+    </div>
+
+
 </div>

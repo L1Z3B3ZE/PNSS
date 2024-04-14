@@ -536,3 +536,25 @@ main {
     font-size: 12px;
     margin-top: 20px;
 }
+
+.patients_appointments_list{
+    width: 690px;
+    height: 60px;
+    background-color: #B1F2EE;
+    border: 2px solid #219688;
+    padding: 0 20px;
+    margin: 20px 0 20px 0;
+    font-size: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.appointment_labels{
+    display: flex;
+    flex-direction: row;
+    gap: 55px;
+    padding-left: 70px;
+}
