@@ -6,6 +6,7 @@
     </div>
     <div class="appointment_filter">
         <form class="appointment_filter" action="<?= app()->route->getUrl('/appointments') ?>" method="get">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
             <select name="doctor_id" class="doctor_filter">
                 <option value="">Все врачи</option>
                 <?php foreach ($doctors as $doctor_id => $doctor): ?>

@@ -4,6 +4,8 @@ if (!app()->auth::checkRole()):
     ?>
     <div class="add_appointment_content">
         <form method="post" class="add_appointment_form">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
+
             <h2 class="add_form_title">Запись на прием</h2>
             <div class="patient_info">
                 <select class="patients_filter" name="patient_id">

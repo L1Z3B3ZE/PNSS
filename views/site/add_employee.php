@@ -4,6 +4,7 @@ if (app()->auth::checkRole()):
     ?>
     <div class="add_employee_content">
         <form method="post" class="add_employee_form">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
             <h2 class="add_form_title">Добавление сотрудника регистратуры</h2>
             <h3 class="message"><?= $message ?? ''; ?></h3>
             <div class="input-group">

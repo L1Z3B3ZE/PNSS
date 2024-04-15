@@ -10,6 +10,7 @@ if (!app()->auth::checkRole()):
         </div>
         <div class="filter">
             <form method="get" action="<?= app()->route->getUrl('/doctors') ?>">
+                <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
                 <select class="patients_filter" name="patient_id">
                     <option label="Пациенты" selected></option>
                     <?php foreach ($patients as $patient): ?>

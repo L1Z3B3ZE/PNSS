@@ -4,6 +4,7 @@ if (!app()->auth::checkRole()):
     ?>
     <div class="add_patient_content">
         <form method="post" class="add_patient_form">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
             <h2 class="add_form_title">Редактирование информации о пациенте</h2>
             <div class="input-group">
                 <label class="add_form_label">Фамилия</label>

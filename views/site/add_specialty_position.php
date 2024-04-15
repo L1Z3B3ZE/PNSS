@@ -4,6 +4,7 @@ if (!app()->auth::checkRole()):
     ?>
     <div class="add_employee_content">
         <form method="post" class="add_position_specialty_form">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
             <div class="input-group">
                 <input type="hidden" name="doctor_id" value="<?= $_SESSION['doctor_id'] ?? '' ?>">
             </div>

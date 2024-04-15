@@ -5,6 +5,7 @@
                 пациента</a></button>
     </div>
     <form action="<?= app()->route->getUrl('/patients') ?>" method="get">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <div class="filter">
             <select name="patient_id" class="patients_filter">
                 <option value="">Все записи</option>

@@ -4,6 +4,7 @@ if (!app()->auth::check()):
     ?>
     <div class="login_content">
         <form class="login_form" method="post">
+            <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
             <h2 class="form_title">Авторизация</h2>
             <h4 class="error_message"><?= $message ?? ''; ?></h4>
             <div class="input-group">
