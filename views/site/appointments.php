@@ -5,19 +5,26 @@
                                                class="link">Добавить запись на прием</a></button>
     </div>
     <div class="appointment_filter">
-        <select class="doctor_filter">
-            <option class="patient_value" label="ФИО Врача" value="1" selected></option>
-            <option class="patient_value">ФИО Врача 1</option>
-            <option class="patient_value">ФИО Врача 2</option>
-            <option class="patient_value">ФИО Врача 3</option>
-        </select>
-        <div class="input-group">
-            <label class="add_form_label">Дата приема</label>
-            <input class="appointment_date" type="date" name="appointment_date">
-        </div>
-        <button class="search_button">Поиск</button>
+        <form class="appointment_filter" action="<?= app()->route->getUrl('/appointments') ?>" method="get">
+            <select name="doctor_id" class="doctor_filter">
+                <option value="">Все врачи</option>
+                <?php foreach ($doctors as $doctor_id => $doctor): ?>
+                    <?php $selected = ($_GET['doctor_id'] == $doctor_id) ? 'selected' : ''; ?>
+                    <option value="<?= $doctor_id ?>" <?= $selected ?>><?= $doctor['surname'] . ' ' . $doctor['name'] . ' ' . $doctor['patronymic'] ?></option>
+                <?php endforeach; ?>
+            </select>
+            <div class="input-group">
+                <label class="add_form_label">Дата приема</label>
+                <input class="appointment_date" type="date" name="appointment_date" value="<?= $_GET['appointment_date'] ?? '' ?>">
+            </div>
+            <button class="search_button">Поиск</button>
+        </form>
     </div>
 
+    <div class="appointment_labels_patient">
+        <p>ФИО пациента</br>дата рождения</p>
+        <p>ФИО врача</br>время приема</br>статус приема</p>
+    </div>
     <ol>
         <?php foreach ($appointments as $appointment): ?>
             <div class="appointments_list">
@@ -27,7 +34,7 @@
                 </div>
                 <div class="appointment_data">
                     <p class="doctor_FIO"><?= $doctors[$appointment->doctor_id]['surname'] . ' ' . $doctors[$appointment->doctor_id]['name'] . ' ' . $doctors[$appointment->doctor_id]['patronymic'] ?></p>
-                    <p class="appointments_date"><?= $appointment->appointment_date ?></p>
+                    <p class="appointments_date"><?= $appointment->appointment_time ?></p>
                     <p class="patient_birthDate"><?= $statuses[$appointment->status_id]['status'] ?></p>
                 </div>
                 <button class="edit_patient_info">

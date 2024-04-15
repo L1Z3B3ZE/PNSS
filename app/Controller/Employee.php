@@ -102,9 +102,20 @@ class Employee
 
     }
 
-    public function appointments(): string
-    {
-        $appointments = Appointment::all();
+    public function appointments(): string {
+        $searchDoctorId = isset($_GET['doctor_id']) ? $_GET['doctor_id'] : null;
+        $searchDate = isset($_GET['appointment_date']) ? $_GET['appointment_date'] : null;
+        $searchStatus = 'новая';
+
+        if($searchDoctorId && $searchDate){
+            $appointments = Appointment::where('doctor_id', $searchDoctorId)->where('appointment_date', $searchDate)->whereHas('status', function ($query) use ($searchStatus) {
+                $query->where('status', $searchStatus);
+            })->get();
+        } else {
+            $appointments = Appointment::whereHas('status', function ($query) use ($searchStatus) {
+                $query->where('status', $searchStatus);
+            })->get();
+        }
 
         $patients = Patient::all()->mapWithKeys(function ($patient) {
             return [$patient->id => ['name' => $patient->name, 'surname' => $patient->surname, 'patronymic' => $patient->patronymic, 'birth_date' => $patient->birth_date]];
@@ -118,8 +129,10 @@ class Employee
             return [$status->id => ['status' => $status->status]];
         });
 
-        return new View('site.appointments', ['patients' => $patients, 'doctors' => $doctors, 'appointments' => $appointments, 'statuses' => $statuses]);
+        return new View('site.appointments', ['patients'=>$patients, 'doctors'=>$doctors, 'appointments'=>$appointments, 'statuses'=>$statuses, 'searchDoctorId' => $searchDoctorId, 'searchDate' => $searchDate]);
     }
+
+
 
 
     public function addAppointment(Request $request): string
