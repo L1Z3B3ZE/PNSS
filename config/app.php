@@ -11,10 +11,11 @@ return [
         'roleEmployee' => \Middlewares\RoleEmployeeMiddleware::class,
         'notAuth' => \Middlewares\NotAuthMiddleware::class,
     ],
-    'validators' => [
-        'required' => \Validators\RequireValidator::class,
-        'unique' => \Validators\UniqueValidator::class
-    ],
+        'validators' => [
+            'required' => \Validators\RequireValidator::class,
+            'unique' => \Validators\UniqueValidator::class,
+            'birthdate' => \Validators\BirthdateValidator::class,
+        ],
     'routeAppMiddleware' => [
         'csrf' => \Middlewares\CSRFMiddleware::class,
         'trim' => \Middlewares\TrimMiddleware::class,

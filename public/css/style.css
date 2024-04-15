@@ -181,7 +181,7 @@ main {
     display: flex;
     flex-direction: column;
     width: 400px;
-    height: 450px;
+    height: 515px;
     background-color: #31D1BE;
     align-items: center;
     border-radius: 55px;
@@ -313,7 +313,7 @@ main {
     display: flex;
     flex-direction: column;
     width: 400px;
-    height: 400px;
+    height: 455px;
     background-color: #31D1BE;
     align-items: center;
     border-radius: 55px;
@@ -400,7 +400,7 @@ main {
     display: flex;
     flex-direction: column;
     width: 400px;
-    height: 400px;
+    height: 440px;
     background-color: #31D1BE;
     align-items: center;
     border-radius: 55px;
@@ -570,3 +570,10 @@ main {
     gap: 100px;
     padding-left: 55px;
 }
+
+.error{
+    color: red;
+    font-size: 13px;
+    font-weight: 600;
+}
+

@@ -48,18 +48,25 @@ class Site
     }
 
 
-    public function login(Request $request): string
-    {
-        //Если просто обращение к странице, то отобразить форму
-        if ($request->method === 'GET') {
-            return new View('site.login');
+    public function login(Request $request): string {
+        $errors = [];
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'login' => ['required'],
+                'password' => ['required'],
+            ],[
+                'required' => 'Поле не может быть пустым',
+            ]);
+
+            if($validator->fails()){
+                $errors = $validator->errors();
+            }
+
+            if (empty($errors) && Auth::attempt($request->all())) {
+                app()->route->redirect('/mainPage');
+            }
         }
-        //Если удалось аутентифицировать пользователя, то редирект
-        if (Auth::attempt($request->all())) {
-            app()->route->redirect('/mainPage');
-        }
-        //Если аутентификация не удалась, то сообщение об ошибке
-        return new View('site.login', ['message' => 'Неправильные логин или пароль']);
+        return new View('site.login', ['errors' => $errors]);
     }
 
     public function logout(): void

@@ -13,7 +13,7 @@ use Model\Patient;
 use Model\Appointment;
 use Model\Doctor;
 use Model\Status;
-
+use Src\Validator\Validator;
 
 
 class Employee
@@ -46,18 +46,32 @@ class Employee
 
 
 
-    public function addDoctor($request): string
-    {
+    public function addDoctor($request): string {
+        $errors = [];
         if ($request->method === 'POST') {
-            $doctor = Doctor::create($request->all());
-            if ($doctor) {
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'surname' => ['required'],
+                'patronymic' => ['required'],
+                'birth_date' => ['birthdate', 'required'],
+            ],[
+                'required' => 'Поле не может быть пустым',
+                'birthdate' => 'Некорректная дата'
+            ]);
+
+            if($validator->fails()){
+                $errors = $validator->errors();
+            }
+
+            if (empty($errors) && $doctor = Doctor::create($request->all())) {
                 // Сохраняем ID врача в сессию
                 $_SESSION['doctor_id'] = $doctor->id;
                 app()->route->redirect('/addSpecialtyPosition');
             }
         }
-        return new View('site.add_doctor');
+        return new View('site.add_doctor', ['errors' => $errors]);
     }
+
 
     public function addSpecialtyPosition($request): string
     {
@@ -85,16 +99,29 @@ class Employee
         return new View('site.patients', ['patients' => $patients, 'appointments' => $appointments, 'doctors' => $doctors, 'statuses' => $statuses, 'searchPatientId' => $searchPatientId]);
     }
 
+    public function addPatient(Request $request): string {
+        $errors = [];
+        if ($request->method === 'POST') {
+            $validator = new Validator($request->all(), [
+                'name' => ['required'],
+                'surname' => ['required'],
+                'patronymic' => ['required'],
+                'birth_date' => ['birthdate', 'required'],
+            ],[
+                'required' => 'Поле не может быть пустым',
+                'birthdate' => 'Некорректная дата'
+            ]);
 
+            if($validator->fails()){
+                $errors = $validator->errors();
+            }
 
-    public function addPatient(Request $request): string
-    {
-        if ($request->method === 'POST' && Patient::create($request->all())) {
-            app()->route->redirect('/patients');
+            if (empty($errors) && Patient::create($request->all())) {
+                app()->route->redirect('/patients');
+            }
         }
-        return new View('site.add_patient');
+        return new View('site.add_patient', ['errors' => $errors]);
     }
-
 
     public function editPatient(): string
     {
