@@ -577,3 +577,19 @@ main {
     font-weight: 600;
 }
 
+.patients_list{
+    width: 440px;
+    height: 60px;
+    background-color: #B1F2EE;
+    border: 2px solid #219688;
+    padding: 0 20px;
+    margin: 20px 0 20px 0;
+    font-size: 16px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+

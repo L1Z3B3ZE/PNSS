@@ -199,4 +199,27 @@ class Employee
         return "Ошибка: запись на прием или статус 'отменена' не найдены.";
     }
 
+    public function allPatients(): string
+    {
+        $statuses = Status::all();
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+        return new View('site.all_patients', ['statuses' => $statuses, 'doctors'=>$doctors, 'patients'=>$patients]);
+    }
+
+    public function searchPatients(Request $request): string
+    {
+        $search = $request->get('search');
+        $patients = Patient::where('name', 'like', '%' . $search . '%')
+            ->orWhere('surname', 'like', '%' . $search . '%')
+            ->orWhere('patronymic', 'like', '%' . $search . '%')
+            ->get();
+
+        if ($patients->isEmpty()) {
+            return new View('site.all_patients', ['message' => 'Такого пациента нет']);
+        } else {
+            return new View('site.all_patients', ['patients' => $patients]);
+        }
+    }
+
 }

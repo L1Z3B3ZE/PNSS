@@ -19,7 +19,7 @@
             <button type="submit" class="search_button">Поиск</button>
         </div>
     </form>
-
+    <button><a href="<?= app()->route->getUrl('/allPatients') ?>">Все пациенты</a></button>
     <div>
         <div class="appointment_labels">
             <p>ФИО пациента/дата рождения</p>
