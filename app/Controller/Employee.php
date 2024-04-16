@@ -160,19 +160,28 @@ class Employee
         return new View('site.appointments', ['patients'=>$patients, 'doctors'=>$doctors, 'appointments'=>$appointments, 'statuses'=>$statuses, 'searchDoctorId' => $searchDoctorId, 'searchDate' => $searchDate]);
     }
 
-
-
-
     public function addAppointment(Request $request): string
     {
-        if ($request->method === 'POST' && Appointment::create($request->all())) {
-            app()->route->redirect('/appointments');
-        }
         $doctors = Doctor::all();
         $patients = Patient::all();
         $users = User::all();
+        if ($request->method === 'POST'){
+            $doctor_id = $request->get('doctor_id');
+            $appointment_date = $request->get('appointment_date');
+            $appointment_time = $request->get('appointment_time');
+            $appointment_time_minus_15 = date('H:i:s', strtotime($appointment_time . ' -15 minutes'));
+            $existingAppointments = Appointment::where('doctor_id', $doctor_id)
+                ->where('appointment_date', $appointment_date)
+                ->whereBetween('appointment_time', [$appointment_time_minus_15, $appointment_time])
+                ->get();
+            if($existingAppointments->count() > 0){
+                return new View('site.add_appointment', ['message' => 'Время приема у данного врача уже занято, выберите время, отстоящее не менее чем на 15 минут от последнего приема', 'doctors' => $doctors, 'patients' => $patients, 'users' => $users]);
+            } else{
+                Appointment::create($request->all());
+                app()->route->redirect('/appointments');
+            }
+        }
         return new View('site.add_appointment', ['doctors' => $doctors, 'patients' => $patients, 'users' => $users]);
-
     }
 
     public function cancelAppointment($appointmentId): string

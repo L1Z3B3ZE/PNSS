@@ -3,6 +3,7 @@
 if (!app()->auth::checkRole()):
     ?>
     <div class="add_appointment_content">
+        <h2><?= $message ?? ''; ?></h2>
         <form method="post" class="add_appointment_form">
             <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
 
