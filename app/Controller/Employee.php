@@ -13,6 +13,7 @@ use Model\Patient;
 use Model\Appointment;
 use Model\Doctor;
 use Model\Status;
+use Model\Note;
 use Src\Validator\Validator;
 
 
@@ -222,4 +223,21 @@ class Employee
         }
     }
 
+    public function add_note(Request $request): string
+    {
+        if ($request->method === 'POST') {
+            if ($_FILES) {
+                if(move_uploaded_file($_FILES['img']['tmp_name'],
+                    'media/' . $_FILES['img']['name'])) {
+                } else {
+                    echo 'Ошибка загрузки файла';
+                }
+            }
+            if (Note::create( ['title'=>$request->title, 'description'=>$request->description, 'img' =>  '/pop-it-mvc/public/media/' . $_FILES['img']['name'] . $_FILES['img']['title']])) {
+                app()->route->redirect('/mainPage');
+            }
+        }
+
+        return new View('site.add_note');
+    }
 }

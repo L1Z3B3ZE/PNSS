@@ -1,8 +1,7 @@
 <div class="employee_content">
     <div class="employee_title_menu">
         <h3>Записи на прием</h3>
-        <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addAppointment') ?>"
-                                               class="link">Добавить запись на прием</a></button>
+        <a href="<?= app()->route->getUrl('/addAppointment') ?>" class="link"><button class="add_employee_button">Добавить запись на прием</button></a>
     </div>
     <div class="appointment_filter">
         <form class="appointment_filter" action="<?= app()->route->getUrl('/appointments') ?>" method="get">
@@ -38,9 +37,7 @@
                     <p class="appointments_date"><?= $appointment->appointment_time ?></p>
                     <p class="patient_birthDate"><?= $statuses[$appointment->status_id]['status'] ?></p>
                 </div>
-                <button class="edit_patient_info">
-                    <a href="<?= app()->route->getUrl('/cancelAppointment/' . $appointment->id) ?>" class="link">Отменить запись</a>
-                </button>
+                <a href="<?= app()->route->getUrl('/cancelAppointment/' . $appointment->id) ?>" class="link"><button class="edit_patient_info">Отменить запись</button></a>
             </div>
         <?php endforeach; ?>
     </ol>

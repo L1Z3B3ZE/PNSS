@@ -1,8 +1,7 @@
 <div class="employee_content">
     <div class="employee_title_menu">
         <h3>Пациенты</h3>
-        <button class="add_employee_button"><a class="link" href="<?= app()->route->getUrl('/addPatient') ?>">Добавить
-                пациента</a></button>
+        <a class="link" href="<?= app()->route->getUrl('/addPatient') ?>"><button class="add_employee_button">Добавить пациента</button></a>
     </div>
     <form action="<?= app()->route->getUrl('/patients') ?>" method="get">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
@@ -19,7 +18,7 @@
             <button type="submit" class="search_button">Поиск</button>
         </div>
     </form>
-    <button><a href="<?= app()->route->getUrl('/allPatients') ?>">Все пациенты</a></button>
+    <a href="<?= app()->route->getUrl('/allPatients') ?>"><button class="all_patients_button">Все пациенты</button></a>
     <div>
         <div class="appointment_labels">
             <p>ФИО пациента/дата рождения</p>

@@ -49,6 +49,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: white;
 }
 
 main {
@@ -71,6 +72,8 @@ main {
     height: 30px;
     background-color: #209C9C;
     border-radius: 15px;
+    cursor: pointer;
+    color: white;
 }
 
 .login_content {
@@ -166,6 +169,7 @@ main {
     background-color: #219688;
     border-radius: 10px;
     color: white;
+    cursor: pointer;
 }
 
 .add_employee_content{
@@ -228,6 +232,8 @@ main {
     width: 280px;
     height: 80px;
     border-radius: 25px;
+    cursor: pointer;
+    color: white;
 }
 
 .employee_button_link{
@@ -593,3 +599,57 @@ main {
     text-align: center;
 }
 
+.all_patients_button{
+    cursor: pointer;
+    width: 120px;
+    height: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #219688;
+    color: white;
+}
+
+.patient_search_input{
+    background-color: #21F5DC;
+    border: 1px solid #209C9C;
+}
+
+.patient_search_button{
+    width: 55px;
+    height: 35px;
+    background-color: #219688;
+    color: white;
+    border-radius: 10px;
+}
+
+.add_note_button{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #136c5c;
+    cursor: pointer;
+    color: white;
+    margin-top: 20px;
+}
+
+.notification{
+    border: 1px solid black;
+    width: 250px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    gap: 5px;
+}
+
+.notes_text{
+    margin: 15px 0 15px 0;
+}
+
+.notes{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

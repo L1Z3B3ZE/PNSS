@@ -4,8 +4,8 @@
     </div>
     <div class="search_form">
         <form action="<?= app()->route->getUrl('/searchPatients') ?>" method="get">
-            <input type="text" name="search" required>
-            <button type="submit">Поиск</button>
+            <input class="patient_search_input" type="text" name="search" required>
+            <button class="patient_search_button" type="submit">Поиск</button>
         </form>
     </div>
     <div>

@@ -10,7 +10,7 @@
 <body>
 <header class="header">
     <div class="logoMain">
-        <img src="/pnss/public/media/logo.png" width="40px">
+        <img src="/pop-it-mvc/public/media/logo.png" width="40px">
         <a class="logo_link" href="<?= app()->route->getUrl('/mainPage') ?>">POLYCLINIC</a>
     </div>
     <?php
@@ -29,7 +29,7 @@
         <?php
         endif;
         ?>
-        <button class="logout_button"><a class="button_link" href="<?= app()->route->getUrl('/logout') ?>">Выход</a></button>
+        <a class="button_link" href="<?= app()->route->getUrl('/logout') ?>"><button class="logout_button">Выход</button></a>
     <?php
     endif;
     ?>

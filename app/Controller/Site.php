@@ -5,6 +5,7 @@ namespace Controller;
 use Src\View;
 use Src\Request;
 use Model\User;
+use Model\Note;
 use Src\Auth\Auth;
 use Src\Validator\Validator;
 
@@ -12,8 +13,9 @@ class Site
 {
     public function homepage(): string
     {
+        $notes = Note::all();
         $users = User::where('role_id', 2)->get();
-        return (new View())->render('site.main_page', ['users' => $users]);
+        return (new View())->render('site.main_page', ['users' => $users, 'notes' => $notes]);
     }
 
     public function index(): string

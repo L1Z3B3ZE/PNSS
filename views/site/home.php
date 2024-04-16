@@ -4,5 +4,5 @@
         <h1 class="company_name">POLYCLINIC</h1>
     </div>
     <h3>Для продолжения необходимо войти в систему</h3>
-    <button class="login_button"><a class="button_link" href="<?= app()->route->getUrl('/login') ?>">Войти</a></button>
+    <a class="button_link" href="<?= app()->route->getUrl('/login') ?>"><button class="login_button">Войти</button></a>
 </div>

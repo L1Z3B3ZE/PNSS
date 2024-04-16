@@ -5,8 +5,7 @@ if (!app()->auth::checkRole()):
     <div class="employee_content">
         <div class="employee_title_menu">
             <h3>Врачи</h3>
-            <button class="add_employee_button"><a href="<?= app()->route->getUrl('/addDoctor') ?>"
-                                                   class="link">Добавить врача</a></button>
+            <a href="<?= app()->route->getUrl('/addDoctor') ?>" class="link"><button class="add_employee_button">Добавить врача</button></a>
         </div>
         <div class="filter">
             <form method="get" action="<?= app()->route->getUrl('/doctors') ?>">
