@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>POLYCLINIC</title>
-    <link rel="stylesheet" href="/pop-it-mvc/public/css/style.css">
+    <link rel="stylesheet" href="/pnss/public/css/style.css">
     <style>
 
     </style>
@@ -10,7 +10,7 @@
 <body>
 <header class="header">
     <div class="logoMain">
-        <img src="/pop-it-mvc/public/media/logo.png" width="40px">
+        <img src="/pnss/public/media/logo.png" width="40px">
         <a class="logo_link" href="<?= app()->route->getUrl('/mainPage') ?>">POLYCLINIC</a>
     </div>
     <?php

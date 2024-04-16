@@ -10,15 +10,15 @@ if (!app()->auth::checkRole()):
             <h2 class="add_form_title">Добавление записи</h2>
             <div class="input-group">
                 <label class="add_form_label">Заголовок</label>
-                <input class="add_input" type="text" name="title" placeholder="Заголовок">
+                <input class="add_input" type="text" name="title" placeholder="Заголовок" required>
             </div>
             <div class="input-group">
                 <label class="add_form_label">Фотография</label>
-                <input type="file" name="img" accept=".jpg, .jpeg, .png">
+                <input type="file" name="img" accept=".jpg, .jpeg, .png" required>
             </div>
             <div class="input-group">
                 <label class="add_form_label">Описание</label>
-                <input class="add_input" type="text" name="description" placeholder="Описание">
+                <input class="add_input" type="text" name="description" placeholder="Описание" required>
             </div>
             <button class="button_add_employee">Создать запись</button>
         </form>

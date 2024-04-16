@@ -22,7 +22,7 @@ else:
     ?>
 <div class="registry_employee_content">
     <div class="logo">
-        <img src="/pop-it-mvc/public/media/logo.png" width="200px">
+        <img src="/pnss/public/media/logo.png" width="200px">
         <h1 class="company_name">POLYCLINIC</h1>
     </div>
     <h3>сотрудник регистратуры</h3>
