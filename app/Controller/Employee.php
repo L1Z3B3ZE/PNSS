@@ -180,7 +180,7 @@ class Employee
                 }
             }
 
-            $appointment_time_minus_15 = date('H:i:s', strtotime($appointment_time . ' -15 minutes'));
+            $appointment_time_minus_15 = date('H:i:s', strtotime($appointment_time . ' -14 minutes'));
             $existingAppointments = Appointment::where('doctor_id', $doctor_id)
                 ->where('appointment_date', $appointment_date)
                 ->whereBetween('appointment_time', [$appointment_time_minus_15, $appointment_time])
