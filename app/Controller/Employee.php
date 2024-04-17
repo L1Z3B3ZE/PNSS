@@ -169,6 +169,17 @@ class Employee
             $doctor_id = $request->get('doctor_id');
             $appointment_date = $request->get('appointment_date');
             $appointment_time = $request->get('appointment_time');
+
+            if ($appointment_time >= '00:00' && $appointment_time < '00:15') {
+                $existingAppointmentsAtMidnight = Appointment::where('doctor_id', $doctor_id)
+                    ->where('appointment_date', $appointment_date)
+                    ->whereBetween('appointment_time', ['00:00', '00:15'])
+                    ->get();
+                if($existingAppointmentsAtMidnight->count() > 0){
+                    return new View('site.add_appointment', ['message' => 'Время приема у данного врача в период с 00:00 до 00:15 уже занято, выберите другое время', 'doctors' => $doctors, 'patients' => $patients, 'users' => $users]);
+                }
+            }
+
             $appointment_time_minus_15 = date('H:i:s', strtotime($appointment_time . ' -15 minutes'));
             $existingAppointments = Appointment::where('doctor_id', $doctor_id)
                 ->where('appointment_date', $appointment_date)
