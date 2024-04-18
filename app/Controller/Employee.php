@@ -15,6 +15,7 @@ use Model\Doctor;
 use Model\Status;
 use Model\Note;
 use Src\Validator\Validator;
+use function Images\upload_picture;
 
 
 class Employee
@@ -246,15 +247,14 @@ class Employee
     public function add_note(Request $request): string
     {
         if ($request->method === 'POST') {
-            if ($_FILES) {
-                if(move_uploaded_file($_FILES['img']['tmp_name'],
-                    'media/' . $_FILES['img']['name'])) {
-                } else {
-                    echo 'Ошибка загрузки файла';
+            if ($_FILES){
+                $imagepath = $_FILES['img']['name'];
+
+                upload_picture('media/', $_FILES, $imagepath)->uploadImage('media/', $_FILES, $imagepath);
+
+                if (Note::create( ['title'=>$request->title, 'description'=>$request->description, 'img' =>  'media/' . $imagepath])) {
+                    app()->route->redirect('/mainPage');
                 }
-            }
-            if (Note::create( ['title'=>$request->title, 'description'=>$request->description, 'img' =>  '/pnss/public/media/' . $_FILES['img']['name'] . $_FILES['img']['title']])) {
-                app()->route->redirect('/mainPage');
             }
         }
 
